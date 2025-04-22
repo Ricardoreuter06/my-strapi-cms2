@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
@@ -10,3 +10,10 @@ export default [
   'strapi::favicon',
   'strapi::public',
 ];
+
+module.exports.settings = {
+  cors: {
+    origin: ['http://localhost:8080'], // Frontend URL
+    headers: ['Content-Type', 'Authorization'],
+  },
+};
