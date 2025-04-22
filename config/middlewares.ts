@@ -11,6 +11,8 @@ module.exports = [
   'strapi::public',
 ];
 
+
+// test commit ob ich diesen commit in jira sehen kann
 module.exports.settings = {
   cors: {
     origin: ['http://localhost:8080'], // Frontend URL
