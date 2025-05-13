@@ -2,7 +2,15 @@ module.exports = [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['http://localhost:5173'],  // Frontend-URL (ggf. die URL deines Frontend-Projekts anpassen)
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'X-Requested-With'],
+      credentials: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
@@ -10,12 +18,3 @@ module.exports = [
   'strapi::favicon',
   'strapi::public',
 ];
-
-
-// test commit ob ich diesen commit in jira sehen kann
-module.exports.settings = {
-  cors: {
-    origin: ['http://localhost:8080'], // Frontend URL
-    headers: ['Content-Type', 'Authorization'],
-  },
-};
