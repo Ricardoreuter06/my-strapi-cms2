@@ -5,13 +5,13 @@ import { getCache, setCache, invalidateCache } from '../../../utils/caching';
 export default factories.createCoreController('api::page.page', ({ strapi }) => ({
   async findOne(ctx) {
     try {
-      const { id } = ctx.params;
+      const { id } = ctx.params;        //holt id aus URL
 
       // Fehlerbehandlung für Redis
       const cachedPage = await getCache(`page:${id}`).catch(() => null);  // Wenn Redis fehlschlägt, gebe null zurück
 
       if (cachedPage) {
-        return ctx.send(cachedPage);
+        return ctx.send(cachedPage);             //prüft ob die seite mit diesem ID-Wert im Redis-cache liegt
       }
 
       // Hole die Seite aus der Datenbank
